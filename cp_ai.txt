@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="fa">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>دموی درخواست CP — Call of Duty Mobile (نمایشی)</title>
+  <style>
+    /* ساده و خوانا — قابلِ شخصی‌سازی */
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#ff6b00;
+      --muted:#9aa4b2;
+      --glass: rgba(255,255,255,0.04);
+      --success:#29b06b;
+      font-family: "Tahoma","Segoe UI Emoji",sans-serif;
+    }
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071021 0%, #0b1220 100%);color:#e6eef6;direction:rtl}
+    .wrap{max-width:980px;margin:32px auto;padding:20px;display:grid;grid-template-columns:1fr 380px;gap:20px}
+    .logo{
+      display:flex;align-items:center;gap:12px;margin-bottom:14px;
+    }
+    .logo-badge{
+      background:linear-gradient(135deg,var(--accent),#ff8b3d);
+      width:60px;height:60px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;
+      box-shadow:0 6px 20px rgba(255,107,0,0.18);
+    }
+    .title{font-size:20px;font-weight:700}
+    .subtitle{color:var(--muted);font-size:13px;margin-top:4px}
+
+    /* فرم */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px;border-radius:12px;box-shadow:0 6px 24px rgba(2,6,23,0.7);border:1px solid rgba(255,255,255,0.02)}
+    label{display:block;font-size:13px;margin-bottom:6px;color:var(--muted)}
+    .input{width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:var(--glass);color:inherit;box-sizing:border-box}
+    .row{display:flex;gap:10px;align-items:center;margin-top:10px}
+    .options{display:flex;gap:10px;margin-top:12px}
+    .option{
+      flex:1;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+      text-align:center;border:1px solid rgba(255,255,255,0.03);cursor:pointer;
+    }
+    .option.selected{outline:3px solid rgba(255,107,0,0.14);transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.5)}
+    .bigbtn{width:100%;padding:12px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),#ff8b3d);color:#06121a;font-weight:700;font-size:15px;margin-top:14px;cursor:pointer}
+    .muted-note{font-size:12px;color:var(--muted);margin-top:8px}
+
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .thumb{height:120px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--muted);border:1px dashed rgba(255,255,255,0.02)}
+    .thumb small{display:block;font-size:11px;color:var(--muted);margin-top:6px}
+
+    .status{margin-top:12px;padding:12px;border-radius:10px;background:rgba(255,255,255,0.02);color:var(--muted);font-size:14px}
+    .success{color:var(--success);font-weight:700}
+    .footer{grid-column:1/-1;text-align:center;margin-top:18px;color:var(--muted);font-size:12px}
+
+    /* responsive */
+    @media (max-width:880px){
+      .wrap{grid-template-columns:1fr; padding:16px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- سمت بزرگ: گالری / توضیحات -->
+    <div>
+      <div class="logo">
+        <div class="logo-badge">CODM</div>
+        <div>
+          <div class="title">نسخهٔ نمایشی: اضافه کردن CP (فقط پیش‌نمایش)</div>
+          <div class="subtitle">این صفحه فقط یک دِمو است؛ هیچ اطلاعاتی ارسال یا ذخیره نمی‌شود.</div>
+        </div>
+      </div>
+
+      <div class="card" role="region" aria-label="گالری">
+        <h3 style="margin:0 0 10px 0">قالب‌ها و طرح‌ها</h3>
+        <div class="gallery">
+          <div class="thumb">
+            طرح جنگی A
+            <small>پوستر / آرت نمایشی</small>
+          </div>
+          <div class="thumb">
+            طرح مسابقه B
+            <small>مینی-پوستر</small>
+          </div>
+          <div class="thumb">
+            اسکین مفهومی
+            <small>طرح مفهومی</small>
+          </div>
+          <div class="thumb">
+            آیکون HUD
+            <small>آیکون نمایشی</small>
+          </div>
+        </div>
+
+        <p class="muted-note" style="margin-top:12px">
+          تصاویر و لوگوهای رسمی مربوط به بازی باید با اجازهٔ مالک استفاده شوند. اینجا فقط طرح‌های نمایشی و جایگزین نمایش داده شده‌اند.
+        </p>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h3 style="margin:0 0 10px 0">اطلاعات مهم</h3>
+        <div class="status" id="notice">
+          <strong>هشدار:</strong> این یک نسخهٔ نمایشی است — هیچ تراکنش یا انتقال CP واقعی انجام نمی‌شود. هرگونه درخواست واقعی خرید یا تغییر حساب باید از طریق کانال‌های رسمی بازی انجام شود.
+        </div>
+      </div>
+    </div>
+
+    <!-- سمت راست: فرم شبیه‌سازی -->
+    <div>
+      <div class="card">
+        <label for="email">ایمیل (نمایشی)</label>
+        <input id="email" class="input" placeholder="example@gmail.com" aria-label="ایمیل نمایشی" />
+
+        <label for="pass" style="margin-top:10px">رمز عبور (فقط نمایشی)</label>
+        <input id="pass" class="input" placeholder="فقط برای پیش‌نمایش — وارد نکنید!" aria-label="رمز نمایشی" />
+
+        <div style="margin-top:12px">
+          <label>مقدار CP را انتخاب کنید</label>
+          <div class="options" id="cpOptions">
+            <div class="option selected" data-cp="160">160 CP</div>
+            <div class="option" data-cp="360">360 CP</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <button class="bigbtn" id="requestBtn">درخواست (نمایشی)</button>
+        </div>
+
+        <div id="progressArea" style="display:none">
+          <div class="status" id="progressText">در حال انجام ...</div>
+        </div>
+
+        <div id="resultArea" style="display:none">
+          <div class="status success" id="resultText"></div>
+          <div class="muted-note" style="margin-top:8px">این پیام فقط نمایشی است. هیچ اطلاعاتی جمع‌آوری یا منتقل نمی‌شود.</div>
+        </div>
+
+        <p class="muted-note" style="margin-top:10px">
+          توجه: برای حفظ امنیت، هرگز رمز عبور خود را در وب‌سایت‌هایی که مطمئن نیستید وارد نکنید.
+        </p>
+      </div>
+
+      <div class="card" style="margin-top:12px;text-align:center">
+        <div style="font-size:13px;color:var(--muted)">نمایش وضعیت درخواست</div>
+        <div id="history" style="margin-top:10px;color:var(--muted);font-size:13px">تاریخچه‌ای ثبت نشده — این دِمو چیزی ذخیره نمی‌کند.</div>
+      </div>
+
+      <div class="footer">نسخهٔ نمایشی — آموزشی — از استفادهٔ غیرقانونی یا فیشینگ خودداری کنید.</div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript ساده برای شبیه‌سازی روند (بدون ارسال/ذخیره)
+    (function(){
+      const options = document.querySelectorAll('.option');
+      const btn = document.getElementById('requestBtn');
+      const progressArea = document.getElementById('progressArea');
+      const progressText = document.getElementById('progressText');
+      const resultArea = document.getElementById('resultArea');
+      const resultText = document.getElementById('resultText');
+      const history = document.getElementById('history');
+
+      let selectedCP = 160;
+      options.forEach(o=>{
+        o.addEventListener('click', ()=> {
+          options.forEach(x=>x.classList.remove('selected'));
+          o.classList.add('selected');
+          selectedCP = parseInt(o.getAttribute('data-cp'),10);
+        });
+      });
+
+      function safeFormatEmail(e){
+        if(!e) return '—';
+        // فقط برای نمایش: مخفی کردن بخشی از ایمیل
+        const at = e.indexOf('@');
+        if(at<=1) return '***' + e.slice(at);
+        return e[0] + '***' + e.slice(at-1);
+      }
+
+      btn.addEventListener('click', ()=> {
+        // هشدار دربارهٔ ورود اطلاعات حساس
+        const email = document.getElementById('email').value.trim();
+        const pass = document.getElementById('pass').value.trim();
+
+        // هیچ داده‌ای ارسال نمی‌شود؛ اگر رمز وارد شده باشد، به کاربر هشدار می‌دهیم
+        if(pass.length>0){
+          alert('توجه: وارد کردن رمز واقعی در این صفحه توصیه نمی‌شود. این فقط یک دِمو است و رمزها ذخیره نمی‌شوند، اما بهتر است رمز واقعی را وارد نکنید.');
+        }
+
+        progressArea.style.display = 'block';
+        resultArea.style.display = 'none';
+        let seconds = 10;
+        progressText.innerText = `در حال پردازش... ${seconds} ثانیه مانده`;
+        btn.disabled = true;
+
+        const timer = setInterval(()=> {
+          seconds--;
+          if(seconds<=0){
+            clearInterval(timer);
+            progressArea.style.display = 'none';
+            resultArea.style.display = 'block';
+            resultText.innerText = `✅ موفق — ${selectedCP} CP (نمایشی) به حساب شما اضافه شد. (${safeFormatEmail(email)})`;
+            btn.disabled = false;
+
+            // به‌صورت محلی فقط برای نمایش، تاریخچه را نشان می‌دهیم (در حافظهٔ مرورگر ذخیره نمی‌کنیم)
+            const now = new Date();
+            history.innerText = `${now.toLocaleString('fa-IR')} — درخواست ${selectedCP} CP برای ${safeFormatEmail(email)} (فقط نمایشی)`;
+          } else {
+            progressText.innerText = `در حال پردازش... ${seconds} ثانیه مانده`;
+          }
+        }, 1000);
+      });
+    })();
+  </script>
+</body>
+</html>
